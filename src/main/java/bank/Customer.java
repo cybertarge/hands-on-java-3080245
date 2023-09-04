@@ -14,9 +14,7 @@ public class Customer {
     setUsername(username);
     setPassword(password);
     setAccountID(accountID);
-
   }
-
   
   public int getId() {
     return this.id;
