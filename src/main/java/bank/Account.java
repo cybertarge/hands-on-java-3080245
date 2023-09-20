@@ -52,9 +52,19 @@ public void deposit(double amount) throws AmountException{
 
 }
 
-public void withdraw(double amount){
+public void withdraw(double amount) throws AmountException{
   
+  if (amount <1){
+    throw new AmountException("The withdrawal amount must be greater than 0.");
+  }
+  else if (amount > getBalance()){
+    throw new AmountException("You do not have sufficient funds for this withdrawal.");
+  }
+  else {
+    double newBalance = balance - amount;
+    setBalance(newBalance);
+    DataSource.updateAccountBalance(id, newBalance);
+  }
 }
-
 
 }
